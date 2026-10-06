@@ -1,0 +1,26 @@
+AP Name:BLDG1-FL2-AP01
+AP IP address:10.10.10.5
+-------------------------
+Device ID: SW-BLDG1-IDF2.example.org
+Entry address(es): 10.20.1.2
+Port ID (outgoing port): GigabitEthernet1/0/12
+Platform: cisco WS-C3850-48P
+Capabilities: Router Switch IGMP
+
+AP Name:BLDG1-FL3-AP02
+AP IP address:10.10.10.6
+-------------------------
+Device ID: SW-BLDG1-IDF3.example.org
+Entry address(es): 10.20.1.3
+Port ID (outgoing port): GigabitEthernet2/0/8
+Platform: cisco WS-C3850-48P
+Capabilities: Router Switch IGMP
+
+AP Name:BLDG2-FL1-AP03
+AP IP address:10.10.20.5
+-------------------------
+Device ID: SW-BLDG2-MDF
+Entry address(es): 10.20.2.2
+Port ID (outgoing port): GigabitEthernet1/0/24
+Platform: cisco WS-C9300-48P
+Capabilities: Router Switch IGMP

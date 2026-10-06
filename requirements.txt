@@ -1,0 +1,5 @@
+netmiko>=4.3
+paramiko>=3.4,<4  # Retain the dependency range used in legacy AireOS lab validation
+pandas>=2.0
+openpyxl>=3.1
+python-dotenv>=1.0

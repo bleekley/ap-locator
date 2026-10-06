@@ -1,0 +1,4 @@
+Number of APs: 2
+AP Name Slots AP Model Ethernet MAC Radio MAC Location Country IP Address State
+AP01 2 C9130AXI-B aabb.ccdd.0001 aabb.ccdd.1001 default US 10.0.0.11 Registered
+AP02 2 AIR-AP1832I-B-K9 aabb.ccdd.0002 aabb.ccdd.1002 default US 10.0.0.12 Registered

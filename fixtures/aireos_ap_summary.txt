@@ -1,0 +1,10 @@
+Number of APs.................................... 3
+
+Global AP User Name.............................. Not Configured
+Global AP Dot1x User Name........................ Not Configured
+
+AP Name             Slots  AP Model              Ethernet MAC       Location          Country  IP Address       Clients
+------------------  -----  --------------------  -----------------  ----------------  -------  ---------------  -------
+BLDG1-FL2-AP01       2     AIR-CAP1702I-B-K9     f0:7f:06:11:22:33  default location  US       10.10.10.5       0
+BLDG1-FL3-AP02       2     AIR-CAP2702I-B-K9     f0:7f:06:44:55:66  default location  US       10.10.10.6       3
+BLDG2-FL1-AP03       2     AIR-AP3802I-B-K9      70:6d:15:aa:bb:cc  default location  US       10.10.20.5       1

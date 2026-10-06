@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AP Locator — Quick guide</title>
+<style>
+body{max-width:820px;margin:48px auto;padding:0 24px;font:17px/1.65 system-ui,sans-serif;color:#19322e;background:#f7faf9}h1{font-size:42px;line-height:1.1}h2{margin-top:36px}a{color:#086954}pre{padding:20px;background:#153b32;color:#effff8;overflow:auto;border-radius:8px}code{font-family:ui-monospace,monospace}.note{padding:16px;border-left:4px solid #bd851d;background:#fff5dc}li{margin:8px 0}
+</style>
+</head>
+<body>
+<h1>AP Locator</h1>
+<p>Collect Cisco AP/CDP inventory and infer site addresses from your switch inventory.</p>
+<p><a href="https://github.com/bleekley/ap-locator">Repository</a> · <a href="https://github.com/bleekley/ap-locator/blob/main/docs/TRAINING.md">Full user guide</a> · <a href="https://github.com/bleekley/ap-locator/blob/main/docs/LAB.md">Lab setup and diagrams</a></p>
+<h2>Install</h2>
+<pre>git clone https://github.com/bleekley/ap-locator.git
+cd ap-locator
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+cp .env.example .env
+cp controllers.example.csv controllers.csv</pre>
+<p>Edit the two local configuration files. Keep credentials, actual controller lists, and customer data private. For PowerShell and per-controller credential overrides, see the full guide.</p>
+<h2>Preview without a network</h2>
+<pre>python examples/offline_demo.py</pre>
+<p>Open <code>output/demo/ap_location_report.xlsx</code>. All demo data is synthetic.</p>
+<h2>Collect and correlate</h2>
+<pre>python src/collect.py
+python src/correlate.py path/to/switch_inventory.xlsx</pre>
+<p>Supply inventory columns <code>hostname</code>, <code>mgmt_ip</code>, and <code>street_address</code>. CSV is also accepted. Extra columns appear with an <code>inventory_</code> prefix.</p>
+<h2>Read the workbook</h2>
+<ol><li>Run Summary: completeness, source, timestamps and match count.</li><li>Controller Status: every requested controller and outcome.</li><li>AP Locations: AP details, match method and location status.</li><li>Per-Site Summary: counts and models, including unresolved APs.</li></ol>
+<div class="note">COMPLETE means collection succeeded for the listed controllers, not that every location is known. Reports reject incomplete runs by default; <code>--allow-partial</code> explicitly generates a labeled subset. Check timestamps: a failed report attempt leaves the old workbook unchanged.</div>
+<h2>Investigate exceptions</h2>
+<p>Duplicates, missing addresses and absent neighbors remain UNKNOWN. MAC tracing produces a candidate for manual verification and never treats missing CDP as confirmed access-port placement. Model compatibility and replacement decisions require the target release's Cisco documentation.</p>
+<p>The current reliability changes passed offline tests. Fresh live validation and a real multi-switch trace remain outstanding. The full guide is the maintained operational reference.</p>
+</body></html>

@@ -1,0 +1,11 @@
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+controllers.csv
+output/
+fixtures/private/
+__pycache__/
+*.pyc
+.DS_Store
